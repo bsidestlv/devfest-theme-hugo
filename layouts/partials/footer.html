@@ -7,14 +7,15 @@
 				<ul class="social-list">
 					{{ range .Site.Data.footer.share }}
 					<li>
-						{{ $url := .URL | relLangURL }}
+						{{ $url := .RelPermalink | relLangURL }}
 						{{ partial "social-sharer.html" (dict "context" . "url" $url "name" .name) }}
 						{{ end }}
 				</ul>
 			</div>
 			<div class="blog">
 				<div class="header">
-					{{ i18n "footer_follow_blog" }} <a href="{{ "blog/" | relLangURL }}">{{ i18n "footer_follow_blog_blog" }}</a>
+					{{ i18n "footer_follow_blog" }} <a href="{{ " blog/" | relLangURL }}">{{ i18n
+						"footer_follow_blog_blog" }}</a>
 				</div>
 			</div>
 			<div class="follow">
@@ -65,8 +66,7 @@
 			<section class="subscribe">
 				<div class="header">{{ i18n "newsletter" }}</div>
 				<p>{{ i18n "subscribe_notice" }}</p>
-				<a href="{{ .Site.Params.subscriptionUrl }}"
-				   class="btn" rel="noopener noreferrer" target="_blank">
+				<a href="{{ .Site.Params.subscriptionUrl }}" class="btn" rel="noopener noreferrer" target="_blank">
 					{{ partial "icon.html" "subscribe" }}
 					{{- i18n "subscribe_action" -}}
 				</a>
